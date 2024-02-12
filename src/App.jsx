@@ -32,6 +32,8 @@ const App = () => {
             setImage(images[1]);
           } else if (res.data.weather[0].mian === "Mint") {
             setImage(images[2]);
+          } else if (res.data.weather[0].mian === "Rain") {
+            setImage(images[0]);
           } else {
             setImage(images[3]);
           }
