@@ -1,9 +1,16 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import rainy from "./assets/ringandsunny.png";
+import clear from "./assets/clear.png";
+import mint from "./assets/mint.png";
+import sunny from "./assets/sunny.png";
 
 const App = () => {
   const [data, setData] = useState({});
-  const [location, setLocation] = useState("Dallas");
+  const [location, setLocation] = useState("Hyderabad");
+  const [image, setImage] = useState("");
+
+  const images = [rainy, clear, mint, sunny];
 
   const apiKey = "05a2d649a4026b65dab7bc09a5e38f8a";
 
@@ -19,6 +26,15 @@ const App = () => {
         if (res.data.cod === 200) {
           setData(res.data);
           console.log(res.data);
+          if (res.data.weather[0].main === "Clouds") {
+            setImage(images[0]);
+          } else if (res.data.weather[0].main === "Clear") {
+            setImage(images[1]);
+          } else if (res.data.weather[0].mian === "Mint") {
+            setImage(images[2]);
+          } else {
+            setImage(images[3]);
+          }
         } else {
           console.error("Weather data not available for this city");
         }
@@ -49,20 +65,21 @@ const App = () => {
         <div className="top">
           <div>
             <p className="city">{data.name}</p>
-            <h1 className="temp">{data.main && data.main.temp} &#8451;</h1>
+            <h1 className="temp">
+              {data.main && Math.floor(data.main.temp)} &#x2109;
+            </h1>
             <p className="temp">
               {data.weather && data.weather[0].description}
             </p>
           </div>
           <div className="temp_d">
             <p className="bold">{data.weather && data.weather[0].main}</p>
-            {/* <p>Max_temp - {data.main.temp_max && data.main.temp_max}</p>
-            <p>Min_temp - {data.main.temp_min && data.main.temp_min}</p> */}
+            <img src={image} alt="image" />
           </div>
         </div>
         <div className="button">
           <div className="feels bold">
-            <p>{data.main && data.main.feels_like} &#8451;</p>
+            <p>{data.main && data.main.feels_like} &#x2109;</p>
             <p>Feels Like</p>
           </div>
           <div className="humidity bold">
