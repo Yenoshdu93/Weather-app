@@ -66,6 +66,10 @@ img {
   justify-content: center;
   gap: 0.6rem;
 }
+.temp_d img {
+  position: relative;
+  right: 2rem;
+}
 .container {
   position: relative;
   max-width: 700px;
@@ -96,4 +100,22 @@ img {
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
+}
+
+@media (max-width: 724px) {
+  p {
+    font-size: 1.4rem;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  .feels p{
+    font-size:1rem
+  }
+  .humidity p{
+    font-size:1rem
+  }
+  .wind p{
+    font-size:1rem
+  }
 }
