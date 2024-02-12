@@ -1,0 +1,99 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+p {
+  font-size: 1.5rem;
+  color: white;
+}
+h1 {
+  font-size: 4rem;
+  color: white;
+}
+.app {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.app::before {
+  content: " ";
+  position: absolute;
+  background: url("./assets/weather3.jpg") no-repeat;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.search {
+  padding: 1rem;
+  text-align: center;
+}
+.search input[type="text"] {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 0.8rem;
+  border-radius: 1.5rem;
+  padding-left: 1rem;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 1rem;
+  color: white;
+}
+.search input[type="text"]:focus {
+  border-color: gold;
+  transition: 0.5s ease-in-out;
+}
+::placeholder {
+  color: white;
+}
+img {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  right: -90%;
+}
+.temp_d {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+.container {
+  position: relative;
+  max-width: 700px;
+  height: 500px;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.app .top {
+  width: 100%;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: space-between;
+}
+.bold {
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: white;
+}
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
