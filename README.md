@@ -1,4 +1,4 @@
-# React Weather App
+# Weather App
 Checkout the live demo app [here](https://weather-app-ruddy-iota-81.vercel.app/)
 
 This is a simple weather application built with React that allows users to search for the current weather conditions of a specific location.
