@@ -10,6 +10,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  width: 100%;
+}
 p {
   font-size: 1.5rem;
   color: white;
@@ -27,7 +30,7 @@ h1 {
 .app::before {
   content: " ";
   position: absolute;
-  background: url("./assets/weather3.jpg") no-repeat;
+  background-color: rgba(31, 140, 190, 0.7);
   height: 100%;
   width: 100%;
   z-index: -1;
@@ -46,19 +49,23 @@ h1 {
   font-size: 1rem;
   color: white;
 }
+
 .search input[type="text"]:focus {
   border-color: gold;
   transition: 0.5s ease-in-out;
 }
+
 ::placeholder {
   color: white;
 }
+
 img {
   height: 100px;
   width: 100px;
   position: relative;
   right: -90%;
 }
+
 .temp_d {
   display: flex;
   flex-direction: column;
@@ -66,10 +73,12 @@ img {
   justify-content: center;
   gap: 0.6rem;
 }
+
 .temp_d img {
   position: relative;
   right: 2rem;
 }
+
 .container {
   position: relative;
   max-width: 700px;
@@ -80,17 +89,20 @@ img {
   flex-direction: column;
   justify-content: space-around;
 }
+
 .app .top {
   width: 100%;
   margin: 1rem auto;
   display: flex;
   justify-content: space-between;
 }
+
 .bold {
   font-weight: 400;
   font-size: 1.5rem;
   color: white;
 }
+
 .button {
   width: 100%;
   display: flex;
@@ -102,20 +114,88 @@ img {
   border-radius: 10px;
 }
 
-@media (max-width: 724px) {
+.temp_d img {
+  animation: right_left 2s ease-in-out alternate forwards;
+}
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+.dark-mode .search input[type="text"] {
+  border-color: #fff;
+  color: #fff;
+}
+
+/* .dark-mode .temp_d img {
+  filter: brightness(0) invert(1);
+} */
+
+@keyframes right_left {
+  from {
+    transform: translateX(-3rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.error {
+  text-align: center;
+  font-size: 1rem;
+  color: rgba(251, 255, 245, 0.6);
+}
+.btn {
+  padding: 0.4rem;
+  width: 4rem;
+  border-radius: 0.6rem;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 200;
+  position: absolute;
+  right: 20%;
+  top: 15%;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.btn:hover {
+  transform: scale(1.2);
+}
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1rem;
+  color: rgb(255, 247, 247);
+}
+.light {
+  background-color: #868383;
+  color: white;
+}
+.dark {
+  background-color: rgb(231, 222, 222);
+  color: #333;
+}
+.dark-mode .btn {
+}
+
+@media (max-width: 724px) and (min-width: 500px) {
   p {
     font-size: 1.4rem;
   }
   h1 {
     font-size: 1.8rem;
   }
-  .feels p{
-    font-size:1rem
+  .feels p,
+  .humidity p,
+  .wind p {
+    font-size: 1rem;
   }
-  .humidity p{
-    font-size:1rem
+
+  .temp_d img {
+    right: 0;
   }
-  .wind p{
-    font-size:1rem
+
+  .search input[type="text"] {
+    width: 100%;
+    max-width: 300px;
   }
 }
